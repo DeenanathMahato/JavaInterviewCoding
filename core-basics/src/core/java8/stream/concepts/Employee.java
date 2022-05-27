@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Employee {
 
-	private int empId;
+	private Integer empId;
 
 	private String empName;
 
@@ -12,7 +12,7 @@ public class Employee {
 
 	private List<String> phoneNumbers;
 
-	public Employee(int empId, String empName, Double salary, List<String> phoneNumbers) {
+	public Employee(Integer empId, String empName, Double salary, List<String> phoneNumbers) {
 		super();
 		this.empId = empId;
 		this.empName = empName;
@@ -20,11 +20,11 @@ public class Employee {
 		this.phoneNumbers = phoneNumbers;
 	}
 
-	public int getEmpId() {
+	public Integer getEmpId() {
 		return empId;
 	}
 
-	public void setEmpId(int empId) {
+	public void setEmpId(Integer empId) {
 		this.empId = empId;
 	}
 
