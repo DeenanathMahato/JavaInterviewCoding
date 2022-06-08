@@ -2,6 +2,7 @@ package core.java8.stream.concepts;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TotalEmployeeSalary {
 
@@ -16,5 +17,8 @@ public class TotalEmployeeSalary {
 		//using method reference ::
 		Double totalEmpSalary = employees.stream().map(Employee::getSalary).reduce(0.0, Double::sum);
 		System.out.println("Total Employee Salary2: " + totalEmpSalary);
+		
+		Double sum = employees.stream().collect(Collectors.summingDouble(Employee::getSalary));
+		System.out.println("Sum: " + sum);
 	}
 }
