@@ -1,10 +1,10 @@
 package core.java8.stream.concepts;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -26,5 +26,8 @@ public class ConvertListToMap {
 		
 		Map<Integer, String> map2 = employees.stream().collect(Collectors.toMap(Employee::getEmpId, Employee::getEmpName, (k, v) -> k + ", " + v));
 		map2.forEach((k, v) -> System.out.println(k + "-" + v));
+		
+		Map<Integer, String> map3 = employees.stream().collect(Collectors.toMap(Employee::getEmpId, Employee::getEmpName));
+		map3.forEach((k, v) -> System.out.println(k + "---" + v));
 	}
 }

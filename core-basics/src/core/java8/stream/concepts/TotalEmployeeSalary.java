@@ -2,6 +2,7 @@ package core.java8.stream.concepts;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class TotalEmployeeSalary {
@@ -20,5 +21,20 @@ public class TotalEmployeeSalary {
 		
 		Double sum = employees.stream().collect(Collectors.summingDouble(Employee::getSalary));
 		System.out.println("Sum: " + sum);
+		
+		Optional<Double> minimumSalary = employees.stream().map(Employee::getSalary).reduce(Double::min);
+		if(minimumSalary.isPresent())
+			System.out.println("Minimum Salary: " + minimumSalary.get());
+		else
+			System.out.println("There is no result");
+		
+		long totalEmpl = employees.stream().count();
+		System.out.println("Total Number of Employee using count: " + totalEmpl);
+		System.out.println("Total Number of Employee using size: " + employees.size());
+		
+		//best use case of count
+		long count = employees.stream().filter(emp -> emp.getSalary() >= 50000.0).count();
+		System.out.println("Number of employee whose salary is >= 50000.0 : " + count);
+		
 	}
 }
